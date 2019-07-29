@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <style>
+            #loader{
+                display: none;
+            }
+            </style>
+     <script>
+         function tableDisplay(){
+            document.getElementById("btn").style.display="none"; 
+            document.getElementById("loader").style.display="block";
+            var body = document.getElementsByTagName("body")[0];
+            var tbl=document.createElement('table');
+            var tblBody = document.createElement("tbody");
+             fetch('https://api.myjson.com/bins/x3vnx')
+             .then(res=>res.json())
+             .then(function(data){
+                 console.log(data)
+                 var x= Object.keys(data);
+                 console.log(x);
+                 for(let i=0;i<x.length;i++){
+                    var tr = document.createElement('tr');
+                    var y= data[x[i]];
+                    var z = Object.keys(y);
+                     console.log(z);
+                    for(let j=0;j<z.length;j++){
+                         console.log(y[z[j]]);
+                         var td = document.createElement('td');
+                         var cellText = document.createTextNode(y[z[j]]);
+                         td.appendChild(cellText);
+                         tr.appendChild(td);
+                    }
+                    tblBody.appendChild(tr);
+                 }
+                 tbl.appendChild(tblBody);
+                 body.appendChild(tbl);
+                 document.getElementById("loader").style.display="none";
+                 tbl.setAttribute("border", "2");
+                })
+             }
+        </script>
+    </head>
+    <body>
+        <div id="loader">
+            <img src="giphy.gif">
+        </div>
+        <button id="btn" type="button" onclick="tableDisplay()">View Data</button>
+    </body>
+</html>

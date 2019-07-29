@@ -1,0 +1,27 @@
+.container{
+    display:flex;
+}
+
+.first-section{
+    flex-grow: 1;
+    height:200px;
+    background-color: red;
+}
+
+.second-section{
+    display: flex;
+    
+    
+}
+
+.second-section-1{
+    flex-grow: 1;
+    height:200px;
+    background-color: blue;
+}
+
+.second-section-2{
+    flex-grow: 1;
+    height:200px;
+    background-color: pink;
+}
